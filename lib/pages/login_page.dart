@@ -1,5 +1,6 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:dwarves_app/pages/main_page.dart';
 import 'package:dwarves_app/widgets/login_field.dart';
 import 'package:flutter/material.dart';
 
@@ -26,7 +27,6 @@ class _LoginPageState extends State<LoginPage> {
           ),
           Center(
             child: Column(
-              // ignore: prefer_const_literals_to_create_immutables
               children: [
                 Container(
                   margin: EdgeInsets.only(
@@ -66,6 +66,33 @@ class _LoginPageState extends State<LoginPage> {
                   },
                 ),
                 //register
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    children: [
+                      Text(
+                        "Nie posiadasz jeszcze konta?",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w300,
+                          fontSize: 18,
+                          color: Colors.white,
+                          fontStyle: FontStyle.italic,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
+                  ),
+                ),
+                Text(
+                  "Zarejestruj się!",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w300,
+                    fontSize: 18,
+                    color: Colors.yellow,
+                    fontStyle: FontStyle.italic,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
               ],
             ),
           ),
@@ -77,6 +104,10 @@ class _LoginPageState extends State<LoginPage> {
                 child: const Text('Powrót do strony głównej'),
                 onPressed: () {
                   // Navigate to second route when tapped.
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const MainPage()),
+                  );
                 },
               ),
             ),

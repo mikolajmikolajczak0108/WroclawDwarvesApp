@@ -62,6 +62,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
      - ./assets/images/background.jpg
+     - ./assets/images/map.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -74,13 +75,13 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  fonts:
-     - family: nexa
-       fonts:
-        - asset: fonts/NexaHeavy.otf
-        - asset: fonts/NexaRegular.otf
-        - asset: fonts/NexaThin.otf
-        - asset: fonts/NexaXBold.otf
+  #fonts:
+    #- family: nexa
+     # fonts:
+      #  - asset: lib/assets/fonts/NexaHeavy.otf
+       # - asset: lib/assets/fonts/NexaRegular.otf
+       # - asset: lib/assets/fonts/NexaThin.otf
+       # - asset: lib/assets/fonts/NexaXBold.otf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
