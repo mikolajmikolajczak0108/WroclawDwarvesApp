@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
-class loginField extends StatelessWidget {
+class LoginField extends StatelessWidget {
   final bool isPass;
-  final String HintText;
-  const loginField(this.isPass, this.HintText, {super.key});
-
+  final String hintText;
+  const LoginField(this.isPass, this.hintText, {super.key});
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -16,12 +15,12 @@ class loginField extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
         ),
         child: TextField(
-          obscureText: this.isPass,
+          obscureText: isPass,
           decoration: InputDecoration(
-            contentPadding: EdgeInsets.symmetric(horizontal: 20),
+            contentPadding: const EdgeInsets.symmetric(horizontal: 20),
             border: InputBorder.none,
-            hintText: this.HintText,
-            hintStyle: TextStyle(
+            hintText: hintText,
+            hintStyle: const TextStyle(
               color: Colors.black38,
               fontStyle: FontStyle.italic,
             ),

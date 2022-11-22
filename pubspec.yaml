@@ -77,10 +77,10 @@ flutter:
   fonts:
      - family: nexa
        fonts:
-         - asset: fonts/NexaHeavy.otf
-         - asset: fonts/NexaRegular.otf
-         - asset: fonts/NexaThin.otf
-         - asset: fonts/NexaXBold.otf
+        - asset: fonts/NexaHeavy.otf
+        - asset: fonts/NexaRegular.otf
+        - asset: fonts/NexaThin.otf
+        - asset: fonts/NexaXBold.otf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

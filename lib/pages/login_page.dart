@@ -13,7 +13,6 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
-    final double bottom = MediaQuery.of(context).viewInsets.bottom;
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Stack(
@@ -54,10 +53,10 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 //textbox nick
                 SizedBox(height: 20),
-                loginField(false, "Nickname"),
+                LoginField(false, "Nickname"),
                 //textbox password
                 SizedBox(height: 20),
-                loginField(true, "Password"),
+                LoginField(true, "Password"),
                 SizedBox(height: 30),
                 // log in button
                 ElevatedButton(
