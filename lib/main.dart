@@ -1,8 +1,10 @@
 // ignore_for_file: deprecated_member_use, prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'pages/login_page.dart';
 import 'pages/main_page.dart';
+import 'widgets/map.dart';
 
 void main() {
   runApp(const MyApp());

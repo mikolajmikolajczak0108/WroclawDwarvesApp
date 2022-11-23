@@ -6,7 +6,7 @@ import GoogleMaps
 
 - (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-  [GMSServices provideAPIKey:@"AIzaSyCJdJWCeP8grqbIgU5nb1HFFwpWAlok8VY"];
+  [GMSServices provideAPIKey:@"AIzaSyBrKkvXPp6csmGY7kFlUyBpaC3rCwH1M9Q"];
   [GeneratedPluginRegistrant registerWithRegistry:self];
   return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }

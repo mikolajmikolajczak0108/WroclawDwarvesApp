@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:dwarves_app/widgets/map.dart';
 import 'package:dwarves_app/widgets/search_field.dart';
 import 'package:flutter/material.dart';
 import 'package:dwarves_app/widgets/map_bottom_bar.dart';
@@ -33,10 +34,7 @@ class _MainPageState extends State<MainPage> {
         children: [
           Positioned.fill(
             //
-            child: Image(
-              image: AssetImage('./assets/images/map.jpg'),
-              fit: BoxFit.fill,
-            ),
+            child: MapScreen(title: 'map screen'),
           ),
           Column(
             children: [
