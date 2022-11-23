@@ -17,8 +17,16 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       bottomNavigationBar: SizedBox(
         height: 0.3 * MediaQuery.of(context).size.height,
-        child: BottomAppBar(
-          child: MapBottomBar(),
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(200)),
+            boxShadow: [
+              BoxShadow(color: Colors.black38, spreadRadius: 0, blurRadius: 10),
+            ],
+          ),
+          child: BottomAppBar(
+            child: MapBottomBar(),
+          ),
         ),
       ),
       body: Stack(

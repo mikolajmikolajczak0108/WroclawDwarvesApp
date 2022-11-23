@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, sort_child_properties_last
 
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:dwarves_app/widgets/navigation_buttons_list.dart';
 import 'package:flutter/material.dart';
 
@@ -16,13 +17,73 @@ class MapBottomBar extends StatelessWidget {
             width: double.infinity,
             height: 0.3 * MediaQuery.of(context).size.height,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10.0),
+              borderRadius: BorderRadius.all(Radius.circular(40.0)),
               border: Border.all(
-                color: Colors.black,
+                color: Colors.transparent,
                 width: 0.2,
               ),
             ),
-            child: Text('Jakies krasnale'),
+            child: Column(
+              children: [
+                Expanded(
+                  child: Row(
+                    children: [
+                      AutoSizeText(
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                          color: Colors.black87,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        'Krasnale w pobliżu',
+                      ),
+                      Spacer(),
+                      Image.asset(
+                        height: 20,
+                        width: 20,
+                        './assets/images/krasnal.jpg',
+                      )
+                    ],
+                  ),
+                ),
+                Flexible(
+                  // For positioning
+                  //child: Container(
+                  //decoration: BoxDecoration(
+                  // border: Border.all(
+                  //color: Colors.black,
+                  // width: 4,
+                  // ),
+                  // ),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        Row(
+                          children: [
+                            AutoSizeText('smth'),
+                            AutoSizeText('smth'),
+                            AutoSizeText('smth'),
+                            AutoSizeText('smth'),
+                            AutoSizeText('smth'),
+                          ],
+                        ),
+                        SizedBox(height: 80),
+                        Row(
+                          children: [
+                            AutoSizeText('abc'),
+                            AutoSizeText('abc'),
+                            AutoSizeText('abc'),
+                            AutoSizeText('abc'),
+                            AutoSizeText('abc'),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                //),
+              ],
+            ),
           ),
         ),
         Align(

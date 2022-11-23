@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 class OptionsButton extends StatelessWidget {
@@ -9,19 +10,13 @@ class OptionsButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: Stack(
+      child: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.only(
-              left: 10,
-              top: 10,
-              right: 14,
-              bottom: 30,
-            ),
+          Expanded(
             child: OutlinedButton.icon(
               onPressed: () => handler(),
               icon: icon,
-              label: Text(''),
+              label: AutoSizeText(''),
               style: OutlinedButton.styleFrom(
                 side: BorderSide(
                   color: Colors.transparent,
@@ -29,16 +24,13 @@ class OptionsButton extends StatelessWidget {
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(
-              left: 0,
-              top: 35,
-              right: 3,
-              bottom: 10,
-            ),
+          Expanded(
             child: OutlinedButton(
               onPressed: () => handler(),
-              child: Text(
+              child: AutoSizeText(
+                maxLines: 1,
+                minFontSize: 10,
+                maxFontSize: 14,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.black87,
