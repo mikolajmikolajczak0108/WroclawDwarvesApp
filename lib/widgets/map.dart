@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:dwarves_app/models/markers_list.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -25,7 +26,7 @@ class MapScreen extends StatefulWidget {
 class _MapScreen extends State<MapScreen> {
   late LatLng currentLatLng = const LatLng(48.8566, 2.3522);
   final Completer<GoogleMapController> _controller = Completer();
-
+  bool appStarted = true;
   Future<void> _determinePosition() async {
     await Geolocator.checkPermission();
     await Geolocator.requestPermission();
@@ -44,7 +45,10 @@ class _MapScreen extends State<MapScreen> {
 
   @override
   Widget build(BuildContext context) {
-    _determinePosition();
+    if (appStarted) {
+      _goToCurrentLocation();
+      appStarted = false;
+    }
     return MaterialApp(
       home: Scaffold(
         body: GoogleMap(
@@ -64,7 +68,9 @@ class _MapScreen extends State<MapScreen> {
               infoWindow: const InfoWindow(
                 title: 'My Location',
               ),
-            )
+            ),
+            test[0],
+            test[1],
           },
         ),
         floatingActionButton: FloatingActionButton.extended(
