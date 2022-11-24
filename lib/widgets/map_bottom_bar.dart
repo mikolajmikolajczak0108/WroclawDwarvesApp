@@ -59,7 +59,7 @@ class MapBottomBar extends StatelessWidget {
                     child: Column(
                       children: [
                         Row(
-                          children: [
+                          children: const [
                             AutoSizeText('smth'),
                             AutoSizeText('smth'),
                             AutoSizeText('smth'),
@@ -69,7 +69,7 @@ class MapBottomBar extends StatelessWidget {
                         ),
                         SizedBox(height: 80),
                         Row(
-                          children: [
+                          children: const [
                             AutoSizeText('abc'),
                             AutoSizeText('abc'),
                             AutoSizeText('abc'),

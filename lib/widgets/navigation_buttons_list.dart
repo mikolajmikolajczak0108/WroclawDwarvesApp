@@ -15,11 +15,12 @@ class NavigationButtonsList extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => const LoginPage()),
                 ),
             "Logowanie",
-            Icon(Icons.login)),
+            const Icon(Icons.login)),
         OptionsButton(
-            () => null, "Rejestracja", Icon(Icons.account_box_rounded)),
-        OptionsButton(() => null, "Statystki", Icon(Icons.book)),
-        OptionsButton(() => null, "O aplikacji", Icon(Icons.question_mark)),
+            () => null, "Rejestracja", const Icon(Icons.account_box_rounded)),
+        OptionsButton(() => null, "Statystki", const Icon(Icons.book)),
+        OptionsButton(
+            () => null, "O aplikacji", const Icon(Icons.question_mark)),
       ],
     );
   }

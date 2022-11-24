@@ -21,6 +21,7 @@ class _MainPageState extends State<MainPage> {
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(200)),
+            // ignore: prefer_const_literals_to_create_immutables
             boxShadow: [
               BoxShadow(color: Colors.black38, spreadRadius: 0, blurRadius: 10),
             ],
@@ -37,6 +38,7 @@ class _MainPageState extends State<MainPage> {
             child: MapScreen(title: 'map screen'),
           ),
           Column(
+            // ignore: prefer_const_literals_to_create_immutables
             children: [
               SearchField(),
             ],

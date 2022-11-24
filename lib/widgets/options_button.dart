@@ -5,7 +5,7 @@ class OptionsButton extends StatelessWidget {
   final Function handler;
   final String text;
   final Icon icon;
-  OptionsButton(this.handler, this.text, this.icon);
+  const OptionsButton(this.handler, this.text, this.icon);
 
   @override
   Widget build(BuildContext context) {
@@ -16,9 +16,9 @@ class OptionsButton extends StatelessWidget {
             child: OutlinedButton.icon(
               onPressed: () => handler(),
               icon: icon,
-              label: AutoSizeText(''),
+              label: const AutoSizeText(''),
               style: OutlinedButton.styleFrom(
-                side: BorderSide(
+                side: const BorderSide(
                   color: Colors.transparent,
                 ),
               ),
@@ -27,21 +27,22 @@ class OptionsButton extends StatelessWidget {
           Expanded(
             child: OutlinedButton(
               onPressed: () => handler(),
+              style: OutlinedButton.styleFrom(
+                side: const BorderSide(
+                  color: Colors.transparent,
+                ),
+              ),
               child: AutoSizeText(
                 maxLines: 1,
                 minFontSize: 10,
                 maxFontSize: 14,
                 textAlign: TextAlign.center,
+                // ignore: prefer_const_constructors
                 style: TextStyle(
                   color: Colors.black87,
                   fontSize: 11,
                 ),
                 text,
-              ),
-              style: OutlinedButton.styleFrom(
-                side: BorderSide(
-                  color: Colors.transparent,
-                ),
               ),
             ),
           ),

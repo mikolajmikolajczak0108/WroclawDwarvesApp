@@ -27,8 +27,6 @@ class _MapScreen extends State<MapScreen> {
   final Completer<GoogleMapController> _controller = Completer();
 
   Future<void> _determinePosition() async {
-    bool isLocationServiceEnabled = await Geolocator.isLocationServiceEnabled();
-
     await Geolocator.checkPermission();
     await Geolocator.requestPermission();
     Position position = await Geolocator.getCurrentPosition();
@@ -47,10 +45,6 @@ class _MapScreen extends State<MapScreen> {
   @override
   Widget build(BuildContext context) {
     _determinePosition();
-    print("Current Location --------> " +
-        currentLatLng.latitude.toString() +
-        " " +
-        currentLatLng.longitude.toString());
     return MaterialApp(
       home: Scaffold(
         body: GoogleMap(

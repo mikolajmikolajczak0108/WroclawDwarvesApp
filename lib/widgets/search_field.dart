@@ -14,7 +14,6 @@ class SearchField extends StatelessWidget {
           border: Border.all(color: Theme.of(context).primaryColor),
           borderRadius: BorderRadius.circular(12),
         ),
-        // ignore: prefer_const_constructors
         child: TextField(
           decoration: InputDecoration(
             contentPadding: const EdgeInsets.symmetric(horizontal: 20),
