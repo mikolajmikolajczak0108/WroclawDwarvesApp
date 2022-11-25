@@ -1,5 +1,7 @@
 import 'dart:async';
-
+import 'dart:ui' as ui;
+import 'dart:typed_data';
+import 'dart:io';
 import 'package:dwarves_app/models/markers_list.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
@@ -27,6 +29,8 @@ class _MapScreen extends State<MapScreen> {
   late LatLng currentLatLng = const LatLng(48.8566, 2.3522);
   final Completer<GoogleMapController> _controller = Completer();
   bool appStarted = true;
+  BitmapDescriptor markerIcon = BitmapDescriptor.defaultMarker;
+
   Future<void> _determinePosition() async {
     await Geolocator.checkPermission();
     await Geolocator.requestPermission();
@@ -40,15 +44,25 @@ class _MapScreen extends State<MapScreen> {
 
   @override
   void initState() {
+    addCustomIcon();
+    _goToCurrentLocation();
     super.initState();
+  }
+
+  void addCustomIcon() {
+    BitmapDescriptor.fromAssetImage(
+            const ImageConfiguration(), "assets/images/dwarf_marker.png")
+        .then(
+      (icon) {
+        setState(() {
+          markerIcon = icon;
+        });
+      },
+    );
   }
 
   @override
   Widget build(BuildContext context) {
-    if (appStarted) {
-      _goToCurrentLocation();
-      appStarted = false;
-    }
     return MaterialApp(
       home: Scaffold(
         body: GoogleMap(
@@ -69,8 +83,8 @@ class _MapScreen extends State<MapScreen> {
                 title: 'My Location',
               ),
             ),
-            test[0],
-            test[1],
+            returnMarkers(markerIcon)[0],
+            returnMarkers(markerIcon)[1],
           },
         ),
         floatingActionButton: FloatingActionButton.extended(
