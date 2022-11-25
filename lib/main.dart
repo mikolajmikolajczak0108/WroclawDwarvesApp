@@ -1,9 +1,12 @@
 // ignore_for_file: deprecated_member_use, prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'models/mongoDB/mongoDB.dart';
 import 'pages/main_page.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await DwarvesDatabase.connect();
   runApp(const MyApp());
 }
 
