@@ -5,7 +5,8 @@ import 'package:mongo_dart/mongo_dart.dart';
 
 class DwarvesDatabase {
   static connect() async {
-    var db = await Db.create(MONGO_URL);
+    var db = await Db.create(
+        'mongodb+srv://admin:cisco@cluster0.iphr5yp.mongodb.net/test');
     await db.open();
     inspect(db);
     var status = db.serverStatus();

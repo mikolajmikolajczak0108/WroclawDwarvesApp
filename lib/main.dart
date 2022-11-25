@@ -6,7 +6,7 @@ import 'pages/main_page.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  //await DwarvesDatabase.connect(); until Atlas is up!
+  //await DwarvesDatabase.connect(); handshake error on android device
   runApp(const MyApp());
 }
 
