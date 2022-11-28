@@ -39,7 +39,8 @@ dependencies:
   auto_size_text: ^3.0.0
   google_maps_flutter: ^2.2.1
   geolocator: ^8.2.1
-  mongo_dart: ^0.7.4+1
+  flutter_google_places: ^0.3.0
+  mongo_dart: ^0.8.1
 
 dev_dependencies:
   flutter_test:
@@ -68,7 +69,6 @@ flutter:
      - ./assets/images/background.jpg
      - ./assets/images/map.jpg
      - ./assets/images/krasnal.jpg
-     - ./assets/images/dwarf_marker.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
