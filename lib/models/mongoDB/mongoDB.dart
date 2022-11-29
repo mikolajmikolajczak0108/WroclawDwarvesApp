@@ -13,5 +13,6 @@ class DwarvesDatabase {
     print(
         status); //for debugging and tracing what happens to mongoDB AWS server
     var collection = db.collection(COLLECTION_NAME);
+    final qrasnals = await collection.find().toList;
   }
 }
