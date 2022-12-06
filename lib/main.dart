@@ -6,7 +6,7 @@ import 'pages/main_page.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  //await DwarvesDatabase.connect();
+  await DwarvesDatabase.connect();
   runApp(const MyApp());
 }
 

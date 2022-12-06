@@ -1,7 +1,4 @@
 import 'dart:async';
-import 'dart:ui' as ui;
-import 'dart:typed_data';
-import 'dart:io';
 import 'package:dwarves_app/models/markers_list.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
@@ -10,15 +7,6 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 class MapScreen extends StatefulWidget {
   const MapScreen({Key? key, required this.title}) : super(key: key);
 
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
   final String title;
 
   @override
@@ -26,39 +14,35 @@ class MapScreen extends StatefulWidget {
 }
 
 class _MapScreen extends State<MapScreen> {
-  late LatLng currentLatLng = const LatLng(48.8566, 2.3522);
+  late LatLng currentLatLng = const LatLng(0, 0);
   final Completer<GoogleMapController> _controller = Completer();
+  late List<Marker> dwarf_marker_list = [];
   bool appStarted = true;
-  BitmapDescriptor markerIcon = BitmapDescriptor.defaultMarker;
 
   Future<void> _determinePosition() async {
     await Geolocator.checkPermission();
     await Geolocator.requestPermission();
-    Position position = await Geolocator.getCurrentPosition();
-    setState(() {
-      currentLatLng = LatLng(position.latitude, position.longitude);
-    });
+    // Position position = await Geolocator.getCurrentPosition();
+    // Position position = LatLng(51.11067852952598, 17.03580765983415);
+    // setState(() {
+    //   currentLatLng = LatLng(position.latitude, position.longitude);
+    // });
 
     return;
   }
 
-  @override
-  void initState() {
-    addCustomIcon();
-    _goToCurrentLocation();
-    super.initState();
+  Future<void> _get_dwarf_marker_list() async {
+    var tmp_dwarf_marker_list = await returnMarkers();
+    setState(() {
+      dwarf_marker_list = tmp_dwarf_marker_list;
+    });
   }
 
-  void addCustomIcon() {
-    BitmapDescriptor.fromAssetImage(
-            const ImageConfiguration(), "assets/images/dwarf_marker.png")
-        .then(
-      (icon) {
-        setState(() {
-          markerIcon = icon;
-        });
-      },
-    );
+  @override
+  void initState() {
+    super.initState();
+    _goToCurrentLocation();
+    _get_dwarf_marker_list();
   }
 
   @override
@@ -68,23 +52,21 @@ class _MapScreen extends State<MapScreen> {
         body: GoogleMap(
           zoomControlsEnabled: false,
           mapType: MapType.normal,
-          initialCameraPosition:
-              CameraPosition(target: currentLatLng, zoom: 14),
+          initialCameraPosition: CameraPosition(target: currentLatLng, zoom: 14),
           onMapCreated: (GoogleMapController controller) {
             _controller.complete(controller);
           },
           markers: <Marker>{
-            Marker(
-              draggable: true,
-              markerId: const MarkerId("1"),
-              position: currentLatLng,
-              icon: BitmapDescriptor.defaultMarker,
-              infoWindow: const InfoWindow(
-                title: 'My Location',
-              ),
-            ),
-            returnMarkers(markerIcon)[0],
-            returnMarkers(markerIcon)[1],
+            // Marker(
+            //   draggable: true,
+            //   markerId: const MarkerId("1"),
+            //   position: currentLatLng,
+            //   icon: BitmapDescriptor.defaultMarker,
+            //   infoWindow: const InfoWindow(
+            //     title: 'My Location',
+            //   ),
+            // ),
+            ...dwarf_marker_list.map((dwarf_marker) => dwarf_marker).toList()
           },
         ),
         floatingActionButton: FloatingActionButton.extended(
@@ -99,8 +81,11 @@ class _MapScreen extends State<MapScreen> {
   Future<void> _goToCurrentLocation() async {
     await _determinePosition();
     final GoogleMapController controller = await _controller.future;
-    controller.animateCamera(CameraUpdate.newCameraPosition(
-        CameraPosition(target: currentLatLng, zoom: 13)));
-    // CameraPosition(target: currentLatLng, zoom: 13)));
+    controller.animateCamera(
+      CameraUpdate.newCameraPosition(
+        const CameraPosition(
+            target: LatLng(51.11067852952598, 17.03580765983415), zoom: 13),
+      ),
+    );
   }
 }

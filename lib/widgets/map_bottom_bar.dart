@@ -17,7 +17,7 @@ class MapBottomBar extends StatelessWidget {
             width: double.infinity,
             height: 0.3 * MediaQuery.of(context).size.height,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(40.0)),
+              borderRadius: BorderRadius.circular(40),
               border: Border.all(
                 color: Colors.transparent,
                 width: 0.2,
